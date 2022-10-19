@@ -1,0 +1,363 @@
+@charset "UTF-8";
+/**
+  * Inspired by
+  * https://github.com/iandinwoodie/github-markdown-tailwindcss/blob/master/markdown.css
+*/
+.py-05 {
+  padding-top: 0.125rem;
+  padding-bottom: 0.125rem;
+}
+
+.markdown {
+  @apply text-gray-900 leading-normal break-words;
+}
+
+.markdown > * + * {
+  @apply mt-0 mb-4;
+}
+
+.markdown li + li {
+  @apply mt-1;
+}
+
+.markdown li > p + p {
+  @apply mt-6;
+}
+
+.markdown strong {
+  @apply font-semibold;
+}
+
+.markdown a {
+  @apply text-blue-600 font-semibold;
+}
+
+.markdown strong a {
+  @apply font-bold;
+}
+
+.markdown h1 {
+  @apply leading-tight text-5xl font-semibold mb-4 mt-6 pb-2;
+}
+
+.markdown h2 {
+  @apply leading-tight text-4xl font-semibold mb-4 mt-6 pb-2;
+}
+
+.markdown h3 {
+  @apply leading-snug text-2xl font-semibold mb-4 mt-6;
+}
+
+.markdown h4 {
+  @apply leading-none text-lg font-semibold mb-4 mt-6;
+}
+
+.markdown h5 {
+  @apply leading-tight text-base font-semibold mb-4 mt-6;
+}
+
+.markdown h6 {
+  @apply leading-tight text-sm font-semibold text-gray-600 mb-4 mt-6;
+}
+
+.markdown blockquote {
+  @apply text-base border-l-4 border-gray-300 pl-4 pr-4 text-gray-600;
+}
+
+.markdown code {
+  @apply font-mono text-sm inline bg-gray-200 rounded px-1 py-05;
+}
+
+.markdown pre {
+  @apply bg-gray-100 rounded p-4;
+}
+
+.markdown pre code {
+  @apply block bg-transparent p-0 overflow-visible rounded-none;
+}
+
+.markdown ul {
+  @apply text-base pl-8 list-disc;
+}
+
+.markdown ol {
+  @apply text-base pl-8 list-decimal;
+}
+
+.markdown kbd {
+  @apply text-xs inline-block rounded border px-1 py-05 align-middle font-normal font-mono shadow;
+}
+
+.markdown table {
+  @apply text-base border-gray-600;
+}
+
+.markdown th {
+  @apply border py-1 px-3;
+}
+
+.markdown td {
+  @apply border py-1 px-3;
+}
+
+/* Override pygments style background color. */
+.markdown .highlight pre {
+  @apply bg-gray-100;
+}
+
+body {
+  @apply antialiased;
+  @apply subpixel-antialiased;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #f2e9e1;
+  overflow-x: hidden;
+}
+
+h1, .h1-style {
+  font-family: "Inter", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  font-size: 6.5rem;
+}
+
+@media screen and (max-width: 950px) {
+  h1, .h1-style {
+    font-size: 4rem;
+  }
+}
+
+h2, .h2-style {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 85px;
+}
+
+h3, .h3-style {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 56px;
+}
+
+h4, .h4-style {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+  font-size: 35px;
+}
+
+h5, .h5-style {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 28px;
+}
+
+h6, .h6-style {
+  font-family: "Source Code Pro", monospace;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+p {
+  font-family: "Source Code Pro", monospace;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+span {
+  font-family: "Source Code Pro", monospace;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+}
+
+ol, ul {
+  font-family: "Source Code Pro", monospace;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  list-style: none;
+}
+
+.content ul li::marker {
+  content: '›';
+  font-size: 20px;
+}
+
+.content li {
+  font-family: "Source Code Pro", monospace;
+  font-weight: 400;
+  font-size: 18px;
+  margin-left: 20px;
+}
+
+.content li ::marker {
+  content: '›';
+}
+
+a {
+  text-decoration: underline;
+  font-family: "Source Code Pro", monospace;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.btn, .btn-primary, .btn-white {
+  display: block;
+  width: fit-content;
+  font-family: "Source Code Pro", monospace;
+  font-weight: 400;
+  font-size: 18px;
+  border: 2px solid #3d3939;
+  padding: 10px 20px;
+  margin: 20px 0px;
+  text-decoration: none;
+  box-shadow: 8px 8px 0 black;
+}
+
+.btn:hover, .btn-primary:hover, .btn-white:hover {
+  transition: box-shadow .5s;
+  box-shadow: 2px 2px 0 black;
+  font-style: regular;
+}
+
+.btn-primary {
+  background: #f2e9e1;
+}
+
+.btn-white {
+  background: #fff;
+}
+
+button {
+  background: #fff;
+  font-family: "Source Code Pro", monospace;
+  font-weight: 400;
+  font-size: 18px;
+  border: 2px solid #3d3939;
+  padding: 10px 20px;
+  margin: 10px 0px;
+  text-decoration: none;
+  box-shadow: 8px 8px 0 black;
+}
+
+.subheader {
+  font-family: "Source Code Pro", monospace;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.relative-position {
+  position: relative;
+}
+
+.full-width-line {
+  width: 100vw;
+  position: absolute;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  border-bottom: 1px solid #3d3939;
+}
+
+.bottom-bar {
+  width: 100vw;
+  position: absolute;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  border-bottom: 1px solid #3d3939;
+}
+
+.white-background {
+  background: #fff;
+}
+
+.white-background:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -9999px;
+  right: 0;
+  border-left: 9999px solid black;
+  box-shadow: 9999px 0 0 black;
+}
+
+.text-block {
+  white-space: pre-line;
+}
+
+.border-bottom {
+  border-bottom: 2px solid #3d3939;
+}
+
+.header {
+  position: relative;
+}
+
+.header .full-width-line {
+  width: 100vw;
+  position: absolute;
+  top: 90%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  border-bottom: 1px solid #3d3939;
+}
+
+.header__logo a {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  text-decoration: none;
+  letter-spacing: 0px;
+  text-transform: lowercase;
+}
+
+.header__logo span {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+  font-size: 40px;
+  letter-spacing: -1px;
+}
+
+.header__logo .light-text {
+  font-weight: 300;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s;
+}
+
+.page-enter,
+.page-leave-active {
+  opacity: 0;
+}
+
+.slide-left-enter,
+.slide-right-leave-active {
+  opacity: 0;
+  transform: translate(30px, 0);
+}
+
+.slide-left-leave-active,
+.slide-right-enter {
+  opacity: 0;
+  transform: translate(-30px, 0);
+}

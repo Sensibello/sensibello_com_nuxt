@@ -22,6 +22,7 @@ module.exports = {
   plugins: ['@typescript-eslint', 'vue-a11y', 'prettier', 'vue'],
   // add your custom rules here
   rules: {
+    "useTabs": false,
     'prettier/prettier': ['error', { singleQuote: true, trailingComma: 'es5', printWidth: 100 }],
     'import/extensions': [
       'error',

@@ -1,18 +1,18 @@
 <template>
-  <header class="flex items-center py-4 md:py-8">
+  <header class="container mx-auto header flex items-center py-4 md:py-8">
     <div class="header__logo">
       <nuxt-link to="/">
-        <img :src="logo" alt="Logo" />
+        <span class="logo-text">Karli<span class="light-text">Sensibello</span></span>
       </nuxt-link>
     </div>
 
     <nav class="nav ml-auto">
       <ul class="flex flex-row items-center sm:mt-4 sm:pt-4 md:mt-0 md:pt-0 md:mr-4 lg:mr-8">
-        <li>
+        <!-- <li>
           <nuxt-link to="/blog" class="block font-medium px-4 py-1 md:p-2 lg:px-4">
             Blog
           </nuxt-link>
-        </li>
+        </li> -->
 
         <li
           v-for="(page, index) in pages"
@@ -23,6 +23,7 @@
         </li>
       </ul>
     </nav>
+    <div class="full-width-line"></div>
   </header>
 </template>
 
@@ -44,8 +45,7 @@ export default class Header extends Vue {
 .nav {
   ul li > a {
     &.nuxt-link-active {
-      color: $bluise;
-      @apply font-bold;
+     
     }
   }
 }

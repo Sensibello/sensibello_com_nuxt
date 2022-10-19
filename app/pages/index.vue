@@ -1,101 +1,51 @@
 <template>
   <section class="home">
-    <div class="py-24 md:py-36 mx-auto flex flex-wrap flex-col md:flex-row items-center">
-      <div class="flex flex-col w-full xl:w-3/5 justify-center lg:items-start overflow-y-hidden">
-        <div v-html="$md.render(welcomeText)" class="home__welcome markdown" />
+   <two-col-text :items="[
+      {
+          header: 'Welcome', 
+          description: `Karli is a passionate frontend developer from Cleveland, Ohio. She strives to build beautiful, accessible, responsive, and clean website with intuitive user experiences. \n \n She has developed websites for a large range of clients from all different types of sectors. Prior to her current position as a Senior Frontend Developer at Progressive's in-house marketing agency, ninety6, she worked on several teams as a frontend developer, web designer, and UX developer. \n \n Her approach to building websites centers around being accessible and memorable, with the goal being to always leaving a good impression to everyone who accesses it.`,
+          url: '/contact',
+          linkText: 'Get in touch',
+      }
+    ]" />
+    
+   <two-image-with-text :items="[
+      {
+          subhead:'What I do',
+          header: 'Welcome', 
+          description: 'I am a front end developer from Cleveland, Ohio. I strive to build beautiful, responsive, and clean website with intuitive user experiences.', 
+          url: '/',
+          linkText: 'link url',
+          imageLeft:'east-fourth.jpg',
+          imageRight:'cleveland-sign.jpg',
+      }
+    ]" />
+</section>
 
-        <div class="mb-12 xl:mb-0">
-          <h4 v-if="isSignedUp">Thank you - we'll be in touch shortly.</h4>
 
-          <form
-            v-else
-            @submit.prevent="handleSubmit"
-            name="signups"
-            netlify
-            class="flex items-center border-b border-b-2 border-blue-400 py-2"
-          >
-            <input
-              ref="emailInput"
-              v-model="form.email"
-              class="appearance-none mb-36 bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
-              type="text"
-              name="email"
-              placeholder="your@email.com"
-              aria-label="Email address"
-            />
 
-            <button
-              class="flex-shrink-0 bg-blue-500 hover:bg-blue-700 border-blue-500 hover:border-blue-700 text-sm border-4 text-white py-1 px-2 rounded"
-              type="submit"
-            >
-              Sign Up
-            </button>
-          </form>
-        </div>
-      </div>
-      <div class="flex flex-col w-full xl:w-2/5">
-        <img
-          alt="Hero"
-          class="rounded shadow-xl"
-          src="https://source.unsplash.com/random/720x400"
-        />
-      </div>
-    </div>
-  </section>
+
 </template>
 
 <script lang="ts">
+import twoColText from '~/components/partials/twoColText.vue';
+import twoImageWithText from '@/components/partials/twoImageWithText.vue';
 import { Component, Vue } from 'nuxt-property-decorator';
 import settings from '@/content/settings/general.json';
 
 @Component({
-  // Called to know which transition to apply
-  transition() {
+  components: {
+    twoColText,
+    twoImageWithText,
+  },
+
+   transition() {
     return 'slide-left';
   },
+
 })
+
 export default class Home extends Vue {
   welcomeText = settings.welcomeText;
-
-  get posts(): Post[] {
-    return this.$store.state.posts;
-  }
-
-  isSignedUp = false;
-
-  form = {
-    email: '',
-  };
-
-  encode(data): string {
-    return Object.keys(data)
-      .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
-      .join('&');
-  }
-
-  validEmail(email): boolean {
-    // eslint-disable-next-line
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
-  }
-
-  async handleSubmit(): Promise<void> {
-    if (!this.validEmail(this.form.email)) {
-      this.$refs.emailInput.focus();
-      return;
-    }
-
-    try {
-      await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: this.encode({ 'form-name': 'signups', ...this.form }),
-      });
-
-      this.isSignedUp = true;
-    } catch (error) {
-      console.error(error);
-    }
-  }
 }
 </script>

@@ -1,16 +1,259 @@
 @import 'markdown';
+@import 'variables';
+
 
 body {
   @apply antialiased;
   @apply subpixel-antialiased;
 }
 
+// MAIN BODY CLASSES //
 .main {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background: $beige;
+  overflow-x: hidden;
 }
 
+// TYPOGRAPHY //
+
+h1, .h1-style {
+  font-family: $inter;
+  font-weight: $font-black;
+  font-style: italic;
+  font-size: 6.5rem;
+
+  @media screen and (max-width: $medium) {
+    font-size: 4rem;
+  }
+}
+
+
+h2, .h2-style {
+  font-family: $poppins;
+  font-weight: $font-extrabold;
+  font-style: italic;
+  font-size: 85px;
+}
+
+h3, .h3-style {
+  font-family: $poppins;
+  font-weight: $font-bold;
+  font-style: normal;
+  font-size: 56px;
+}
+
+h4, .h4-style {
+  font-family: $poppins;
+  font-weight: $font-medium;
+  font-style: italic;
+  font-size: 35px;
+}
+
+h5, .h5-style {
+  font-family: $poppins;
+  font-weight: $font-extrabold;
+  font-style: normal;
+  font-size: 28px;
+}
+
+
+h6, .h6-style {
+  font-family: $source-code;
+  font-weight: $font-medium;
+  font-style: normal;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+p {
+  font-family: $source-code;
+  font-weight: $font-regular;
+  font-style: normal;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+span {
+  font-family: $source-code;
+  font-weight: $font-regular;
+  font-style: normal;
+  font-size: 18px;
+}
+
+
+ol, ul {
+  font-family: $source-code;
+  font-weight: $font-regular;
+  font-style: normal;
+  font-size: 18px;
+  list-style: none;
+}
+
+.content ul li::marker {
+  content: '›';
+  font-size: 20px;
+}
+
+.content li {
+  font-family: $source-code;
+  font-weight: $font-regular;
+  font-size: 18px;
+  margin-left: 20px;
+
+  ::marker {
+    content: '›'
+  }
+}
+
+a {
+  text-decoration: underline;
+  font-family: $source-code;
+  font-weight: $font-regular;
+  font-size: 18px;
+
+  &:hover {
+    
+  }
+}
+
+.btn, .btn-primary, .btn-white {
+  display: block;
+  width: fit-content;
+  font-family: $source-code;
+  font-weight: $font-regular;
+  font-size: 18px;
+  border: 2px solid $black;
+  padding: 10px 20px;
+  margin: 20px 0px;
+  text-decoration: none;
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 1); 
+
+  &:hover {
+    transition: box-shadow .5s;
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 1); 
+    font-style: regular;
+  }
+}
+
+.btn-primary {
+  background: $beige;
+}
+
+.btn-white {
+  background: $white;
+}
+
+button {
+  background: $white;
+  font-family: $source-code;
+  font-weight: $font-regular;
+  font-size: 18px;
+  border: 2px solid $black;
+  padding: 10px 20px;
+  margin: 10px 0px;
+  text-decoration: none;
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 1)  ; 
+}
+
+.subheader {
+  font-family: $source-code;
+  font-weight: $font-medium;
+  font-style: normal;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.relative-position {
+  position: relative; 
+}
+
+.full-width-line {
+  width: 100vw;
+  position: absolute;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  border-bottom: 1px solid $black;
+}
+
+.bottom-bar {
+  width: 100vw;
+  position: absolute;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  border-bottom: 1px solid $black;
+}
+
+.white-background {
+  background: $white;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -9999px;
+    right: 0;
+    border-left: 9999px solid black;
+    box-shadow: 9999px 0 0 black;
+  }
+}
+
+.text-block {
+  white-space: pre-line; // or pre-line
+}
+
+.border-bottom {
+  border-bottom: 2px solid $black;
+}
+
+// HEADER CLASSES //
+
+.header {
+  position: relative;
+}
+
+.header .full-width-line {
+  width: 100vw;
+  position: absolute;
+  top: 90%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  border-bottom: 1px solid $black;
+}
+
+.header__logo {
+  a {
+    font-family: $poppins;
+    font-weight: $font-extrabold;
+    font-style: italic;
+    text-decoration: none;
+    letter-spacing: 0px;
+    text-transform: lowercase;
+  }
+
+  span {
+    font-family: $poppins;
+    font-weight: $font-extrabold;
+    font-style: italic;
+    font-size: 40px;
+    letter-spacing: -1px;
+  }
+
+  .logo-text {
+
+  }
+
+  .light-text {
+    font-weight: $font-light;
+  }
+}
+
+// MAIN BODY CLASSES //
 .page-enter-active,
 .page-leave-active {
   transition: opacity 0.5s;
