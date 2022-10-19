@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "nuxt-ts -o",
-    "build": "nuxt build",
+    "build": "nuxt run build",
     "start": " nuxt-ts start",
     "generate": "nuxt-ts generate",
     "test:unit": "cross-env BABEL_ENV=test jest --coverage",
